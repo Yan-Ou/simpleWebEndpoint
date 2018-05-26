@@ -10,8 +10,9 @@ clean:
 	rm -f ${APP}
 
 build: clean
-		go get -u github.com/golang/dep/cmd/dep
-		dep init && dep ensure
+		go get -u github.com/etherlabsio/healthcheck
+		go get -u github.com/etherlabsio/healthcheck/checkers
+		go get -u github.com/gorilla/mux
 		CGO_ENABLED=0 GOOS=${GOS} GOARCH=${GOARCH} go build \
 		-ldflags "-s -w -X main.Release=${RELEASE} \
 		-X main.Commit=${COMMIT} -X main.BuildTime=${BUILD_TIME} \
