@@ -10,17 +10,13 @@ clean:
 	rm -f ${APP}
 
 build: clean
-		go get -u github.com/etherlabsio/healthcheck
-		go get -u github.com/etherlabsio/healthcheck/checkers
-		go get -u github.com/gorilla/mux
+		go get -u github.com/golang/dep/cmd/dep
+		dep init && dep ensure
 		CGO_ENABLED=0 GOOS=${GOS} GOARCH=${GOARCH} go build \
 		-ldflags "-s -w -X main.Release=${RELEASE} \
 		-X main.Commit=${COMMIT} -X main.BuildTime=${BUILD_TIME} \
 		-X main.ProjectName=${APP}" \
 		-o ${APP}
 
-run: build
-			PORT=${PORT} ./${APP}
-
-test: run
+test: build
 	go test -v -race ./...
