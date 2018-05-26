@@ -16,14 +16,8 @@ build: clean
 		-X main.ProjectName=${APP}" \
 		-o ${APP}
 
-container: build
-		docker build -t $(APP):$(RELEASE) .
+run: build
+			PORT=${PORT} ./${APP}
 
-run: container
-	docker stop $(APP):$(RELEASE) || true && docker rm $(APP):$(RELEASE) || true
-	docker run --name ${APP} -p ${PORT}:${PORT} --rm \
-		-e "PORT=${PORT}" \
-		$(APP):$(RELEASE)
-
-test:
+test: run
 	go test -v -race ./...
