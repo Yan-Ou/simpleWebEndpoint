@@ -4,4 +4,4 @@ go:
 
 script:
 
- - make run
+ - make test
