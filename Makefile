@@ -22,7 +22,4 @@ test: build
 	go test -v -race ./...
 
 run: test
-	nohup ./webapp &
-	curl -i localhost:80
-	curl -i localhost:80/health
-	curl -i localhost:80/metadata
+	./webapp 
