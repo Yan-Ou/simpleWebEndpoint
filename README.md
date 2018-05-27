@@ -1,7 +1,7 @@
 # Just checkout this repository?
-1: Ensure you have Golang 1.9.4 installed.
-2: Ensure GOPATH is correctly configured.
-3: Ensure port 8000 is not in use on your localhost.
+1. Ensure you have Golang 1.9.4 installed.
+2. Ensure GOPATH is correctly configured.
+3. Ensure port 8000 is not in use on your localhost.
 
 # Build
 make build
