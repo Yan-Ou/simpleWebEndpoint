@@ -1,18 +1,18 @@
-## Just checkout this repository?
-* Step 1: Ensure you have Golang 1.9.4 installed.
-* Step 2: Ensure GOPATH is correctly configured.
-* Step 3: Ensure port 8000 is not in use on your localhost.
+# Just checkout this repository?
+1: Ensure you have Golang 1.9.4 installed.
+2: Ensure GOPATH is correctly configured.
+3: Ensure port 8000 is not in use on your localhost.
 
-## Build
+# Build
 make build
 
-## Run the 
+# Run the app
 ./webapp 
 
-## Unit test
-go test -v -race ./...
+# Unit test
+g test -v -race ./...
 
-## Access the app endpoints
+# Access the app endpoints
 1. Access the root endpoint: curl -i localhost:8000
 2. Access the health endpoint: curl -i localhost:8000/health
   1) The threshold vaule for diskspace check is 1%, hence it will always throw errors.
