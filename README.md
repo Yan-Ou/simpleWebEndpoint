@@ -7,7 +7,7 @@
 make build
 
 # Run the app
-./webapp 
+./webapp &
 
 # Unit test
 g test -v -race ./...
@@ -23,3 +23,6 @@ g test -v -race ./...
   3) The hearbeat check is on endpoint "/", modify the second argument in health.go:
       healthcheck.WithChecker("heartbeat", checkers.Heartbeat("/"))
 3. Access the metadata endpoint: curl -i localhost:8000/metadata
+
+# Access all the endpoints
+./testserver.sh
