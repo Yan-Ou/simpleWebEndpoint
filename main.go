@@ -20,5 +20,5 @@ func main() {
 	r := Router(ProjectName, BuildTime, Commit, Release)
 	log.Print("The service is up and running.")
 	// Start a web server on local port 8000
-	log.Fatal(http.ListenAndServe(":8000", r))
+	log.Fatal(http.ListenAndServe(":80", r))
 }

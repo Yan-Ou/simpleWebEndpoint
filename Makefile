@@ -23,6 +23,6 @@ test: build
 
 run: test
 	nohup ./webapp &
-	curl -i localhost:8000
-	curl -i localhost:8000/health
-	curl -i localhost:8000/metadata
+	curl -i localhost:80
+	curl -i localhost:80/health
+	curl -i localhost:80/metadata
