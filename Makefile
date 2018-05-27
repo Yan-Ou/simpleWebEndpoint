@@ -22,4 +22,4 @@ test: build
 	go test -v -race ./...
 
 run: test
-	./webapp 
+	./webapp &
