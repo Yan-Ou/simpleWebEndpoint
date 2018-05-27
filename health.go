@@ -13,7 +13,7 @@ func health() http.Handler {
 		// WithTimeout allows you to set a max overall timeout.
 		healthcheck.WithTimeout(5*time.Second),
 
-		// Checkers fail the status in case of any error.
+		// Check heartbeat on root path and check used diskspace on /var/log with threshold 1%
 		healthcheck.WithChecker("heartbeat", checkers.Heartbeat("/")),
 		healthcheck.WithObserver(
 			"diskspace", checkers.DiskSpace("/var/log", 1),

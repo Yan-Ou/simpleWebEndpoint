@@ -1,5 +1,4 @@
 APP?=webapp
-PORT?=8000
 RELEASE?=0.1
 COMMIT?=$(shell git rev-parse --short HEAD)
 BUILD_TIME?=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
@@ -21,3 +20,9 @@ build: clean
 
 test: build
 	go test -v -race ./...
+
+run: test
+	nohup ./webapp &
+	curl -i localhost:8000
+	curl -i localhost:8000/health
+	curl -i localhost:8000/metadata
